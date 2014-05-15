@@ -1,0 +1,96 @@
+$triangle-side: 105px;
+#triangles-formation {
+  @include centerItem($triangle-side * 5 + (4px * 5)); // border * items nr
+
+  margin-top: -$triangle-side * 2.2;
+
+
+  .formation-group {
+    position: relative;
+    height: $triangle-side * sqrt(3)/2;
+  }
+
+  .triangle {
+    overflow: hidden;
+    text-align: center;
+
+    background-color: $red;
+
+    box-sizing: content-box;
+
+    // romb
+    @include centerItem($triangle-side, $triangle-side * sqrt(3)/2 );
+    margin-top: -$triangle-side * sqrt(3)/2;
+    margin-left: 0;
+
+    transform: rotate(60deg) skewX(30deg);
+    -webkit-transform: rotate(60deg) skewX(30deg);
+
+    border-bottom: 4px solid $gray;
+    border-right: 4px solid $gray;
+
+    // triangle
+    .inner {
+      width: inherit;
+      height: inherit;
+      display: block;
+      content: "";
+
+      background-color: $red;
+      border-top: 4px solid $gray;
+
+
+      transform: skewX(-30deg)
+                  rotate(-60deg)
+                  translateY(50%);
+
+      -webkit-transform: skewX(-30deg)
+                  rotate(-60deg)
+                  translateY(50%);
+
+      img {
+        display: none;
+      }
+
+      &:hover {
+        background-color: #FFF;
+
+        img {
+          display: inline;
+        }
+      }
+    }
+
+
+  }
+
+  @for $x from 1 through 5 {
+    .formation-group:nth-child(#{$x}) {
+      width: (5 - ($x - 1)) * $triangle-side + ((5 - ($x - 1)) * 4px);
+      left: ($x - 1) * $triangle-side /2  + (($x - 1) * 2px);
+
+      @if  $x > 1 {
+        top: (($x - 1) * 2px);
+      }
+
+      @if $x == 1 {
+        .triangle {
+          background: none;
+        }
+      }
+    }
+  }
+
+  @for $x from 1 through 5 {
+    .triangle:nth-child(#{$x}) {
+      $extra: (($x - 1) * 4px);
+      @if $x == 1 {
+        $extra: 0px;
+      }
+
+      left: ($x - 1) * $triangle-side + $extra;
+    }
+  }
+
+}
+
