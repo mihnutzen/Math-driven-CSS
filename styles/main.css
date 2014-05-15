@@ -327,6 +327,19 @@ footer .copy {
   color: #000;
 }
 
+/* line 307, ../sass/main.scss */
+.twitter {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  z-index: 1111;
+}
+/* line 313, ../sass/main.scss */
+.twitter.left {
+  right: auto;
+  left: 250px;
+}
+
 /* line 2, ../sass/modules/_scene.scss */
 #scene-holder {
   width: 1200px;
