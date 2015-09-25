@@ -1,0 +1,14 @@
+{
+  "name": "webapp",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "jquery": "~2.1.4"
+  },
+  "overrides": {},
+  "devDependencies": {
+    "chai": "~3.2.0",
+    "jsfeat": "~0.0.8",
+    "mocha": "~2.3.2"
+  }
+}

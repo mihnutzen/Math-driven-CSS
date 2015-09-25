@@ -1,0 +1,19 @@
+
+// in photoshop 1000 distance = 1em 
+
+
+@mixin ps-letter-spacing($distance, $font-size: null) {
+	$distanceInEm: 1;
+
+	@if ($font-size == null) {
+		$distanceInEm: $distance / 1000 + em;
+	} @else {
+		$distanceInEm: $distance * $font-size / 1000;
+	}
+	
+	letter-spacing: $distanceInEm;
+}
+
+
+
+

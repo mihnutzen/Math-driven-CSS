@@ -1,0 +1,90 @@
+
+.romb {
+	overflow: hidden;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	width: 100px;
+	height: 100px;
+	margin-left: -50px;
+	margin-top: -50px;
+
+	background: $color1;
+
+	transform: rotate(-30deg) skewX(30deg) scaleY(cos(30deg));
+}
+
+
+
+
+
+.triangle {
+	width: inherit;
+	height: inherit;
+	background: $color4;
+
+	transform: scaleY(1 / cos(30deg)) skewX(-30deg) rotate(30deg) translateX(50%);
+}
+
+
+
+
+
+.hexa {
+	width: inherit;
+	height: inherit;
+	background: $color5;
+	
+	transform: scaleY(1 / cos(30deg)) skewX(-30deg) rotate(30deg);
+}
+
+
+
+
+
+.penta {
+	overflow: hidden;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	width: 100px;
+	height: 100px;
+	margin-left: -50px;
+	margin-top: -50px;
+	background: $color1;
+
+	transform: rotate(-36deg) 
+				skewX(18deg) 
+				scaleY(cos(18deg));
+
+	div {
+		overflow: hidden;
+		width: inherit;
+		height: inherit;
+
+		transform: scaleY(1/cos(18deg)) 
+					skewX(-18deg) 
+					rotate(36deg) 
+					translateY(-36.33%) 
+					rotate(18deg) 
+					skewY(54deg) 
+					scaleX(cos(54deg));
+
+		&:before {
+			display: block;
+			content: '';
+			width: inherit;
+			height: inherit;
+			background: $color6;
+
+			transform: scaleX(1/cos(54deg)) 
+						skewY(-54deg) 
+						rotate(-18deg) 
+						translateY(-13.67%);
+		}
+	}
+}
+
+

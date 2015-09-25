@@ -1,0 +1,15 @@
+.gradient {
+
+background: linear-gradient(36deg, $color9 42.34%, transparent 42.34%),
+              linear-gradient(72deg, $color10 75.48%, transparent 75.48%),
+              linear-gradient(-36deg, $color3 42.34%, transparent 42.34%) 100% 0,
+              linear-gradient(-72deg, $color2 75.48%, transparent 75.48%) 100% 0,
+              linear-gradient(36deg, transparent 57.66%, $color4 57.66%) 100% 100%,
+              linear-gradient(72deg, transparent 24.52%, $color5 24.52%) 100% 100%,
+              linear-gradient(-36deg, transparent 57.66%, $color8 57.66%) 0 100%,
+              linear-gradient(-72deg, transparent 24.52%, $color7 24.52%) 0 100%,
+              linear-gradient($color6, $color6) 50% 100% $color1 !important;
+
+  background-repeat: no-repeat !important;
+  background-size: 50% 50% !important;
+}

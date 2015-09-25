@@ -1,0 +1,80 @@
+@mixin position($position, $zindex: 0, $top: false, $right: false, $bottom: false, $left: false) {
+
+	@if str-index($position, 'fixed-') != null {
+		$position: str-slice($position, 7);
+		position: fixed;
+	} @else if str-index($position, 'static-') != null {
+		$position: str-slice($position, 8);
+	} @else if str-index($position, 'relative-') != null {
+		$position: str-slice($position, 10);
+		position: relative;
+	} @else {
+		position: absolute;
+	}
+
+	@if $position == "center" or $position == "middle" or $position == "c" {
+		left: 50%;
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%);
+	}
+
+	// sides
+	@else if $position == "center-top" or $position == "top-center" {
+		left: 50%;
+		top: 0;
+		transform: translateX(-50%);
+	}
+	@else if $position == "center-bottom" or $position == "bottom-center" {
+		left: 50%;
+		bottom: 0;
+		transform: translateX(-50%);
+	}
+	@else if $position == "center-left" or $position == "left-center" {
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	@else if $position == "center-right" or $position == "right-center" {
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	// corners
+	@else if $position == "left-top" or $position == "top-left" {
+		left: 0;
+		top: 0;
+	}
+	@else if $position == "left-bottom" or $position == "bottom-left" {
+		left: 0;
+		bottom: 0;
+	}
+	@else if $position == "right-top" or $position == "top-right" {
+		right: 0;
+		top: 0;
+	}
+	@else if $position == "right-bottom" or $position == "bottom-right" {
+		right: 0;
+		bottom: 0;
+	} @else {
+		@error "Unknown position '"+$position+"'";
+	}
+
+	@if $top {
+		top: $top;
+	}
+	@if $right {
+		right: $right;
+	}
+	@if $bottom {
+		bottom: $bottom;
+	}
+	@if $left {
+		left: $left;
+	}
+
+
+	@if $zindex != 0 {
+		z-index: $zindex;
+	}
+}

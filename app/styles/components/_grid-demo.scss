@@ -1,0 +1,46 @@
+.grid {
+	overflow: hidden;
+	width: 100%;
+
+	> div {
+		position: relative;
+
+		float: left;
+		height: 300px;
+		
+		border: 4px solid #FFF; // gutter 
+		background: $color2;
+	}
+
+
+	h1 {
+		@include position('center', 1);
+		@include ps-letter-spacing(150);
+		@include ps-text-shadow (120, 5px, 0, 7px, rgba(0,0,0,0.5));
+	}
+}
+
+
+.fluid {
+	width: calc(100% - 300px);
+}
+
+.square {
+	width: 300px;
+}
+
+
+.col-3 {
+	width: calc(100% / 3);
+}
+
+
+.col-2o3 {
+	width: calc(100% * 2 / 3);
+}
+
+.col-1o3 {
+	width: 100% * 1 / 3;
+}
+
+

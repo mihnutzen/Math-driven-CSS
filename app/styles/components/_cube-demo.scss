@@ -1,0 +1,43 @@
+$cube-side: 100px;
+.cube,
+.cube .side {
+  @include centerItem($cube-side);
+
+  border: 2px solid #FFF;
+
+  &:before,
+  &:after {
+    display: block;
+    content: '';
+
+    @include centerItem($cube-side);
+
+    background-color: transparentize($color7, 0.2);
+    border: 2px solid #FFF;
+  }
+
+  &:before {
+    transform-origin: left;
+    transform: rotateY(-90deg);
+  }
+
+  &:after {
+    transform-origin: top;
+    transform: rotateX(90deg);
+  }
+  background-color: transparentize($color7, 0.2);
+}
+
+.cube .side {
+  transform: translateZ($cube-side) rotate(-90deg) rotateX(180deg);
+}
+
+
+.cube {
+  transform: rotateY(30deg) rotate(60deg);
+
+  &:hover {
+    animation: spinCube 2s 0s linear infinite;
+  }
+}
+

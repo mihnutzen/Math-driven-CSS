@@ -1,0 +1,64 @@
+$triangle-side: 150px;
+$pyramid-side: 150px;
+.pyramid {
+  @include centerItem($pyramid-side);
+  top: $pyramid-side * 1.25;
+
+  transform: rotateX(60deg);
+
+  &:hover {
+    animation: spinPyramid 2s 0s linear infinite;
+  }
+
+
+  $sides-nr: 3;
+  $distance: $triangle-side / (2 * tan( pi() / $sides-nr));
+  $angle: 360deg / $sides-nr;
+
+  @for $x from 1 through $sides-nr {
+    .triangle:nth-child(#{$x}) {
+      transform: rotate($angle * $x) translateY(-$distance) rotateX(70.52deg) rotate(60deg) skewX(30deg);
+    }
+  }
+
+  $triangle-side: $pyramid-side;
+  .triangle {
+    overflow: hidden;
+    border-bottom: 2px solid #FFF;
+    border-right: 2px solid #FFF;
+
+    // romb
+    @include centerItem($triangle-side, $triangle-side * sqrt(3)/2 );
+    // transform: translateY(-$triangle-side/2) rotate(60deg) skewX(30deg);
+    background: none !important;
+
+    // triangle
+    &:before {
+      width: inherit;
+      height: inherit;
+      display: block;
+      content: "";
+
+      border: 2px solid #FFF;
+
+      background-color: $color9;
+
+      transform: skewX(-30deg)
+                  rotate(-60deg)
+                  translateY(50%) rotate(0deg);
+    }
+  }
+}
+
+
+
+@keyframes spinPyramid {
+  0% {
+    // transform-origin: right;
+    transform: rotateX(60deg) rotate(0deg);
+  }
+  100% {
+    // transform-origin: right;
+    transform: rotateX(60deg) rotate(360deg);
+  }
+}

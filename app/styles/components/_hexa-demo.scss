@@ -1,0 +1,160 @@
+$hexa-side: 200px;
+$hexa-anim-delay: 0s;
+$hexa-rows: 12;
+
+.hexa-logo {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+.hexas-holder {
+  // display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+  background: #FFF;
+}
+
+#hexa-grid {
+  // display: none;
+  @include centerItem($hexa-side * 6 + (5 * $hexa-side/2) + 18, $hexa-side * 4); // border * items nr
+  z-index: 1;
+
+
+  .grid-group {
+    position: relative;
+    height: $hexa-side * sqrt(3)/2;
+
+    &:nth-child(even) {
+      background-color: transparent !important;
+      left: $hexa-side * sqrt(3)/2 * cos(30deg) + 2;
+
+      margin-top: - $hexa-side * sqrt(3)/2/2 + 1;
+    }
+  }
+
+  .hexagon {
+    overflow: hidden;
+
+    // romb
+    @include centerItem($hexa-side, $hexa-side * sqrt(3)/2 );
+    margin-left: 0;
+    transform: rotate(60deg) skewX(30deg);
+
+    // hexagon
+    .inner {
+      width: inherit;
+      height: inherit;
+      display: block;
+      content: "";
+
+      background-color: $color1;
+
+      transform: skewX(-30deg)
+                  rotate(-60deg);
+    }
+
+    iframe {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  @for $x from 1 through $hexa-rows {
+    .hexagon:nth-child(#{$x}) {
+      left: ($x - 1) * $hexa-side + ($hexa-side /  2 * ($x - 1)) + ($x - 1) * 4;
+
+      transition: all ($x * 0.06) + 1.2s ease-in;
+      transition-delay: ($x * 0.25) + $hexa-anim-delay;
+    }
+  }
+
+  @for $x from 2 through $hexa-rows {
+    .grid-group:nth-child(#{$x}) {
+      margin-top: - $hexa-side * sqrt(3)/2/2 + 1;
+    }
+  }
+
+}
+
+
+#anim-trigger {
+  display: none;
+  position: absolute;
+  top: 8px;
+  left: 5px;
+}
+
+.anim-trigger {
+  position: absolute;
+  // z-index: 1;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: inline-block;
+  padding: 12px 25px;
+
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+
+  color: #FFF;
+  background: $color1;
+  border-radius: 4px;
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+
+    display: block;
+    content: '';
+    
+    width: 20px;
+    height: 20px;
+
+    margin-left: -10px;
+    margin-top: -10px;
+    
+    border-radius: 50%;
+    background: $color1;
+  }
+}
+
+
+#anim-trigger:checked + .anim-trigger {
+  color: $color1;
+
+  &:after {
+    animation: scaleDisc 1s ease-in;
+    animation-delay: $hexa-rows * $hexa-anim-delay + 3s;
+    animation-fill-mode: forwards;
+  }
+}
+
+
+#anim-trigger:checked + .anim-trigger + #hexa-grid {
+  .hexagon {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+
+
+@keyframes scaleDisc {
+  100% {
+    transform: scale(1000);
+  }
+}

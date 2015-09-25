@@ -1,0 +1,166 @@
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+
+/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
+	Usage: @include font-size(1, large);
+*/
+@mixin font-size( $decimal-size, $keyword: null ) {
+  @if $keyword{ font-size: $keyword; }
+  @else { font-size: $decimal-size * $base-font-multiplier * 16px;}
+  font-size: $decimal-size * 1rem;
+}
+
+@mixin triangle($direction, $color, $sizeW, $sizeH) {
+	@if $direction == "left" {
+		border-bottom: $sizeW solid transparent;
+		border-right: $sizeH solid $color;
+		border-top: $sizeW solid transparent;
+	}
+	@else if $direction == "right" {
+		border-bottom: $sizeW solid transparent;
+		border-left: $sizeH solid $color;
+		border-top: $sizeW solid transparent;
+	}
+	@else if $direction == "up" {
+		border-bottom: $sizeH solid $color;
+		border-left: $sizeW solid transparent;
+		border-right: $sizeW solid transparent;
+	}
+	@else if $direction == "down" {
+		border-right: $sizeW solid transparent;
+		border-left: $sizeW solid transparent;
+		border-top: $sizeH solid $color;
+	}
+
+	height: 0;
+	width: 0;
+}
+
+$defaultPrefixes: webkit moz ms o;
+
+@mixin prefixr($property, $value, $prefixes: $defaultPrefixes) {
+    @each $prefix in $prefixes {
+        -#{$prefix}-#{$property}: #{$value};
+    }
+    #{$property}: #{$value};
+}
+
+
+/*
+    Ui images and hi-dpi management
+-----------------------------------------------------------------------*/
+@mixin hi-dpi {
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+    only screen and (-o-min-device-pixel-ratio: 13/10),
+    only screen and (min-resolution: 120dpi) {
+        @content;
+    }
+}
+
+@mixin ui-image($id, $mimetype: image/png) {
+
+    // "inline-image" to base64 encode the image.
+    background-image: inline-image("#{$id}.png", $mimetype);
+
+    // "image-width" and "iamge-height" calculate the image dimentions.
+    background-size: image-width("#{$id}.png") image-height("#{$id}.png");
+    background-repeat: no-repeat;
+
+    width: image-width("#{$id}.png");
+    height: image-height("#{$id}.png");
+
+    text-indent: -9000px;
+
+    // @include hi-dpi {
+    //     // "inline-image" to base64 encode the @2x image.
+    //     background-image: inline-image("#{$id}@2x.png", $mimetype);
+    // }
+}
+
+
+
+@mixin icon-image($id, $mimetype: image/png) {
+
+    // "inline-image" to base64 encode the image.
+    background-image: inline-image("#{$id}.png", $mimetype);
+
+    // "image-width" and "iamge-height" calculate the image dimentions.
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    text-indent: -9000px;
+}
+
+
+@mixin keyframes($animation-name){
+	  @-webkit-keyframes $animation-name{
+	    @content;
+	  }
+
+	  @-moz-keyframes $animation-name{
+	    @content;
+	  }
+
+	  @-ms-keyframes $animation-name{
+	    @content;
+	  }
+
+	  @keyframes $animation-name{
+	    @content;
+	  }
+}
+
+
+
+@mixin box($displayType: false, $width: false, $height: false, $pseudoElement: false) {
+	@if $displayType == "block" or  $displayType == "bl" or $displayType == "BL" {
+		display: block;
+	}
+	@else if $displayType == "inline-block" or  $displayType == "in-bl" or $displayType == "IN-BL" {
+		display: inline-block;
+	}
+	@else if $displayType == "inline" or  $displayType == "in" or $displayType == "IN" {
+		display: inline;
+	}
+	@else if $displayType == "none" {
+		display: none;
+	}
+
+	@if $pseudoElement == true {
+		content: '';
+	}
+
+	@if type-of($width) == number {
+		width: $width;
+	}
+
+	@if type-of($height) == number {
+		height: $height;
+	}
+
+}
+
+
+@mixin centerItem($w, $h: $w) {
+    width: $w;
+    height: $h;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    margin-left: -$w/2;
+    margin-top: -$h/2
+}
+
+@mixin centerLeft($w, $h: $w) {
+    width: $w;
+    height: $h;
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    margin-top: -$h/2
+}

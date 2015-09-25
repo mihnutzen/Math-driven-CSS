@@ -1,0 +1,252 @@
+$lcube-side: 100px;
+.leap-holder {
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    transform:  translateZ(1000px) rotateX(75deg);
+
+    &.anim-step0 {
+        .leap {
+            transform: translateY(0px);
+        }
+    }
+
+    .leap {
+        transition: all 1s ease-in;
+        transform: translateY(-3200px) rotateY(30deg);
+    }
+
+    $lcube-side: 100px;
+    .lcube,
+    .lcube-half {
+        @include centerItem($lcube-side);
+
+        border: 2px solid #eee;
+
+        &:before,
+        &:after {
+            display: block;
+            content: '';
+
+            @include centerItem($lcube-side);
+
+            background-color: transparentize(#666, 0.8);
+            border: 2px solid #eee;
+        }
+
+        &:before {
+            transform-origin: left;
+
+            transform: rotateY(-90deg);
+        }
+
+        &:after {
+            transform-origin: top;
+
+            transform: rotateX(90deg);
+        }
+        background-color: transparentize(#666, 0.8);
+    }
+
+    .lcube-half {
+        transform: translateZ($lcube-side) rotate(-90deg) rotateX(180deg);
+    }
+    // End lCube setup
+
+    .lcube {
+        // display: none;
+    }
+
+
+
+
+    $finger-width: 30px;
+    $finger-height: 30px;
+    .finger-half,
+    .finger {
+        // transform: translateY(400px) rotate(-40deg);
+        display: none;
+        @include centerItem($finger-width, $finger-height);
+
+        &:after {
+            @include centerItem($finger-width, $finger-height);
+        }
+
+        &:before {
+            @include centerItem($finger-height, $finger-height);
+            transform: rotateY(-90deg) translateZ(($finger-width - $finger-height) / 2);
+        }
+    }
+    .finger-half {
+        display: inherit;
+        transform: translateZ($finger-height) rotate(180deg) rotateX(180deg);
+
+        &:after {
+            transform-origin: bottom;
+
+            transform: rotateX(-90deg);
+        }
+    }
+
+
+    $palm-width: 130px;
+    $palm-height: 50px;
+    .palm-half,
+    .palm {
+        // transform: translateY(400px) rotate(-40deg);
+        display: none;
+        @include centerItem($palm-width, $palm-height);
+
+        &:after {
+            @include centerItem($palm-width, $palm-height);
+        }
+
+        &:before {
+            @include centerItem($palm-height, $palm-height);
+            transform: rotateY(-90deg) translateZ(($palm-width - $palm-height) / 2);
+        }
+    }
+    .palm-half {
+        display: inherit;
+        transform: translateZ($palm-height) rotate(180deg) rotateX(180deg);
+
+        &:after {
+            transform-origin: bottom;
+
+            transform: rotateX(-90deg);
+        }
+    }
+
+}
+.leap {
+    position: absolute;
+    bottom: -300px;
+    left: 0;
+
+    width: 100%;
+    min-height: 1px;
+    border: 0;
+
+    
+
+    *,*:before,*:after {
+        box-sizing: border-box;
+
+        transform-style: preserve-3d;
+    }
+    
+
+
+    .rotatable-lcube {
+        transition: all 2s ease-in;
+
+        // transform-origin: bottom;
+        // transform: rotateX(0deg);
+
+        &, &:before, &:after, .lcube-half, .lcube-half:before, .lcube-half:after {
+            background-color: transparentize($color7, 0.2);
+        }
+    }
+
+    .rotatable-holder {
+        border: 0;
+        padding: 0;
+        @include centerLeft($lcube-side);
+        top: 0;
+        margin-top: 0;
+
+        transition: all 2s ease-in;
+
+        transform-origin: right;
+
+        transform: rotateY(0deg);
+    }
+
+    .rotatable-lcube {
+      transform-origin: bottom;
+
+      transform: rotateX(-45deg);
+    }
+
+    .step1 {
+      .rotatable-lcube {
+        transform-origin: bottom;
+
+        transform: rotateX(-45deg);
+      }
+    }
+
+    .step2 {
+        transform-origin: right;
+
+        transform: rotateY(45deg);
+    }
+
+    .step3 {
+        // animation: spinlCube 2s 0s linear infinite;
+    }
+}
+
+
+
+
+.spin-x {
+    @include centerItem($lcube-side * 2);
+    // animation: spinlCube 1s 0s linear infinite;
+
+    &.active {
+      animation: spinlCube .4s 0s linear infinite;
+    }
+}
+
+
+
+.rotatable-holder {
+    // transform-origin: right bottom;
+    // transform: translateX(-$lcube-side/2) rotateY(45deg);
+}
+
+.rotatable-lcube {
+    // transform-origin: bottom right !important;
+    // transform: translateY(-$lcube-side/2) rotateX(-45deg);
+}
+
+
+@keyframes animStep1 {
+    0% {
+        transform-origin: bottom right;
+        transform: translateY(-$lcube-side/2) rotateX(0deg);
+    }
+    100% {
+        transform-origin: bottom right;
+        transform: translateY(-$lcube-side/2) rotateX(-45deg);
+    }
+}
+
+@keyframes animStep2 {
+    0% {
+        transform-origin: right bottom;
+        transform: translateX(-$lcube-side/2) rotateY(0deg);
+    }
+    100% {
+        transform-origin: right bottom;
+        transform: translateX(-$lcube-side/2) rotateY(45deg);
+    }
+}
+
+
+@keyframes spinlCube {
+    0% {
+        // transform-origin: right;
+        transform: rotate(0deg);
+    }
+    100% {
+        // transform-origin: right;
+        transform: rotate(360deg);
+    }
+}

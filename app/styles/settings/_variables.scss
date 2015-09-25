@@ -1,0 +1,62 @@
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+
+//Colors
+
+$colorActions: #ffbd15;
+$colorHighlighted: #13836f;
+// $colorImportantInfo: #66c35f;
+
+
+$color1: #1aa0cc;
+$color2: #5a9c49;
+$color3: #95c34b;
+$color4: #e1e23b;
+$color5: #ff9524;
+$color6: #c43e2f;
+$color7: #a31c34;
+$color8: #6b276b;
+$color9: #242965;
+$color10: #1e539e;
+
+$colors: #1aa0cc #5a9c49 #95c34b #95c34b #ff9524 #c43e2f #a31c34 #6b276b #242965 #1e539e;
+
+$white : #fff;
+$black : #000;
+
+$error : #eb7272;
+$valid : #089e00;
+
+$brand-facebook: #03539e;
+$brand-twitter: #2daae4;
+
+// $ultraLightGray: #f2f2f2;
+// $lightGray: #f6f6f6;
+// $borderGray: #dfdfdf;
+// $gray: #e1e1e1;
+// $titlesGray: #414141;
+
+$textGray: #333333;
+$lightGray: #d9d9d9;
+$borderGray: #f2f2f2;
+
+// $red: #e00000;
+// $yellow: #fabe25;
+
+$fontDefault: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+// $fontCustom: "Open Sans", sans-serif;
+$fontCustom: 'Rambla', sans-serif;
+
+
+//Breakpoints
+$siteWidth:                    1170px !default;
+$defaultWidth:                 1024px !default;
+$smallWidth:                   420px  !default;
+$mediumWidth:                  768px  !default;
+$largeWidth:                   1024px !default;
+$hugeWidth:                    1300px !default;
+
+
+$radius: 3px;
+$spacing: 12px;

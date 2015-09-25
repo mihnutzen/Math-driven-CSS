@@ -1,0 +1,1011 @@
+@charset "UTF-8";
+/* —- Utils -— */
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+/* line 5, ../../app/styles/utils/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 26, ../../app/styles/utils/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 30, ../../app/styles/utils/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 33, ../../app/styles/utils/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 36, ../../app/styles/utils/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 39, ../../app/styles/utils/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 44, ../../app/styles/utils/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+/* line 2, ../../app/styles/utils/_box-sizing.scss */
+html {
+  box-sizing: border-box;
+}
+
+/* line 5, ../../app/styles/utils/_box-sizing.scss */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* —- Tools -— */
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
+	Usage: @include font-size(1, large);
+*/
+/*
+    Ui images and hi-dpi management
+-----------------------------------------------------------------------*/
+/* —- Settings -— */
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+/* line 1, ../../app/styles/settings/_typography.scss */
+h1 {
+  width: 100%;
+  font-size: 24px;
+  font-family: sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFF;
+}
+
+/* line 12, ../../app/styles/settings/_typography.scss */
+p {
+  font-size: 0.7em;
+}
+
+/* —- Components -— */
+/* line 1, ../../app/styles/components/_grid-demo.scss */
+.grid {
+  overflow: hidden;
+  width: 100%;
+}
+/* line 5, ../../app/styles/components/_grid-demo.scss */
+.grid > div {
+  position: relative;
+  float: left;
+  height: 300px;
+  border: 4px solid #FFF;
+  background: #5a9c49;
+}
+/* line 16, ../../app/styles/components/_grid-demo.scss */
+.grid h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  letter-spacing: 0.15em;
+  text-shadow: 3px 4px 7px rgba(0, 0, 0, 0.5);
+}
+
+/* line 24, ../../app/styles/components/_grid-demo.scss */
+.fluid {
+  width: calc(100% - 300px);
+}
+
+/* line 28, ../../app/styles/components/_grid-demo.scss */
+.square {
+  width: 300px;
+}
+
+/* line 33, ../../app/styles/components/_grid-demo.scss */
+.col-3 {
+  width: calc(100% / 3);
+}
+
+/* line 38, ../../app/styles/components/_grid-demo.scss */
+.col-2o3 {
+  width: calc(100% * 2 / 3);
+}
+
+/* line 42, ../../app/styles/components/_grid-demo.scss */
+.col-1o3 {
+  width: 33.33333%;
+}
+
+/* line 1, ../../app/styles/components/_gradient-demo.scss */
+.gradient {
+  background: linear-gradient(36deg, #242965 42.34%, rgba(0, 0, 0, 0) 42.34%), linear-gradient(72deg, #1e539e 75.48%, rgba(0, 0, 0, 0) 75.48%), linear-gradient(-36deg, #95c34b 42.34%, rgba(0, 0, 0, 0) 42.34%) 100% 0, linear-gradient(-72deg, #5a9c49 75.48%, rgba(0, 0, 0, 0) 75.48%) 100% 0, linear-gradient(36deg, rgba(0, 0, 0, 0) 57.66%, #e1e23b 57.66%) 100% 100%, linear-gradient(72deg, rgba(0, 0, 0, 0) 24.52%, #ff9524 24.52%) 100% 100%, linear-gradient(-36deg, rgba(0, 0, 0, 0) 57.66%, #6b276b 57.66%) 0 100%, linear-gradient(-72deg, rgba(0, 0, 0, 0) 24.52%, #a31c34 24.52%) 0 100%, linear-gradient(#c43e2f, #c43e2f) 50% 100% #1aa0cc !important;
+  background-repeat: no-repeat !important;
+  background-size: 50% 50% !important;
+}
+
+/* line 2, ../../app/styles/components/_shapes-demo.scss */
+.romb {
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  background: #1aa0cc;
+  transform: rotate(-30deg) skewX(30deg) scaleY(0.86603);
+}
+
+/* line 22, ../../app/styles/components/_shapes-demo.scss */
+.triangle {
+  width: inherit;
+  height: inherit;
+  background: #e1e23b;
+  transform: scaleY(1.1547) skewX(-30deg) rotate(30deg) translateX(50%);
+}
+
+/* line 34, ../../app/styles/components/_shapes-demo.scss */
+.hexa {
+  width: inherit;
+  height: inherit;
+  background: #ff9524;
+  transform: scaleY(1.1547) skewX(-30deg) rotate(30deg);
+}
+
+/* line 46, ../../app/styles/components/_shapes-demo.scss */
+.penta {
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  background: #1aa0cc;
+  transform: rotate(-36deg) skewX(18deg) scaleY(0.95106);
+}
+/* line 62, ../../app/styles/components/_shapes-demo.scss */
+.penta div {
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  transform: scaleY(1.05146) skewX(-18deg) rotate(36deg) translateY(-36.33%) rotate(18deg) skewY(54deg) scaleX(0.58779);
+}
+/* line 75, ../../app/styles/components/_shapes-demo.scss */
+.penta div:before {
+  display: block;
+  content: '';
+  width: inherit;
+  height: inherit;
+  background: #c43e2f;
+  transform: scaleX(1.7013) skewY(-54deg) rotate(-18deg) translateY(-13.67%);
+}
+
+/* line 3, ../../app/styles/components/_pyramid-demo.scss */
+.pyramid {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -75px;
+  margin-top: -75px;
+  top: 187.5px;
+  transform: rotateX(60deg);
+}
+/* line 9, ../../app/styles/components/_pyramid-demo.scss */
+.pyramid:hover {
+  animation: spinPyramid 2s 0s linear infinite;
+}
+/* line 19, ../../app/styles/components/_pyramid-demo.scss */
+.pyramid .triangle:nth-child(1) {
+  transform: rotate(120deg) translateY(-43.30127px) rotateX(70.52deg) rotate(60deg) skewX(30deg);
+}
+/* line 19, ../../app/styles/components/_pyramid-demo.scss */
+.pyramid .triangle:nth-child(2) {
+  transform: rotate(240deg) translateY(-43.30127px) rotateX(70.52deg) rotate(60deg) skewX(30deg);
+}
+/* line 19, ../../app/styles/components/_pyramid-demo.scss */
+.pyramid .triangle:nth-child(3) {
+  transform: rotate(360deg) translateY(-43.30127px) rotateX(70.52deg) rotate(60deg) skewX(30deg);
+}
+/* line 25, ../../app/styles/components/_pyramid-demo.scss */
+.pyramid .triangle {
+  overflow: hidden;
+  border-bottom: 2px solid #FFF;
+  border-right: 2px solid #FFF;
+  width: 150px;
+  height: 129.90381px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -75px;
+  margin-top: -64.95191px;
+  background: none !important;
+}
+/* line 36, ../../app/styles/components/_pyramid-demo.scss */
+.pyramid .triangle:before {
+  width: inherit;
+  height: inherit;
+  display: block;
+  content: "";
+  border: 2px solid #FFF;
+  background-color: #242965;
+  transform: skewX(-30deg) rotate(-60deg) translateY(50%) rotate(0deg);
+}
+
+@keyframes spinPyramid {
+  0% {
+    transform: rotateX(60deg) rotate(0deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotate(360deg);
+  }
+}
+/* line 2, ../../app/styles/components/_cube-demo.scss */
+.cube,
+.cube .side {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  border: 2px solid #FFF;
+  background-color: rgba(163, 28, 52, 0.8);
+}
+/* line 8, ../../app/styles/components/_cube-demo.scss */
+.cube:before, .cube:after,
+.cube .side:before,
+.cube .side:after {
+  display: block;
+  content: '';
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  background-color: rgba(163, 28, 52, 0.8);
+  border: 2px solid #FFF;
+}
+/* line 19, ../../app/styles/components/_cube-demo.scss */
+.cube:before,
+.cube .side:before {
+  transform-origin: left;
+  transform: rotateY(-90deg);
+}
+/* line 24, ../../app/styles/components/_cube-demo.scss */
+.cube:after,
+.cube .side:after {
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+/* line 31, ../../app/styles/components/_cube-demo.scss */
+.cube .side {
+  transform: translateZ(100px) rotate(-90deg) rotateX(180deg);
+}
+
+/* line 36, ../../app/styles/components/_cube-demo.scss */
+.cube {
+  transform: rotateY(30deg) rotate(60deg);
+}
+/* line 39, ../../app/styles/components/_cube-demo.scss */
+.cube:hover {
+  animation: spinCube 2s 0s linear infinite;
+}
+
+/* line 3, ../../app/styles/components/_triangles-demo.scss */
+.triangles-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+}
+
+/* line 13, ../../app/styles/components/_triangles-demo.scss */
+.triangles {
+  width: 770px;
+  height: 770px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -385px;
+  margin-top: -385px;
+  margin-top: -330px;
+}
+/* line 19, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group {
+  position: relative;
+  height: 129.90381px;
+}
+/* line 24, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle {
+  overflow: hidden;
+  text-align: center;
+  background-color: #1aa0cc;
+  box-sizing: content-box;
+  width: 150px;
+  height: 129.90381px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -75px;
+  margin-top: -64.95191px;
+  margin-top: -129.90381px;
+  margin-left: 0;
+  transform: rotate(60deg) skewX(30deg);
+  border-bottom: 4px solid #FFF;
+  border-right: 4px solid #FFF;
+}
+/* line 43, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle .inner {
+  width: inherit;
+  height: inherit;
+  display: block;
+  content: "";
+  background-color: #1aa0cc;
+  border-top: 4px solid #FFF;
+  transform: skewX(-30deg) rotate(-60deg) translateY(50%);
+}
+/* line 57, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle .inner img {
+  display: none;
+}
+/* line 61, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle .inner:hover {
+  background-color: #FFF;
+}
+/* line 64, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle .inner:hover img {
+  display: inline;
+}
+/* line 74, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(1) {
+  width: 770px;
+  left: 0px;
+}
+/* line 83, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(1) .triangle {
+  background-color: #c43e2f;
+}
+/* line 88, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(1) .triangle {
+  background: none;
+}
+/* line 74, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(2) {
+  width: 616px;
+  left: 77px;
+  top: 2px;
+}
+/* line 83, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(2) .triangle {
+  background-color: #95c34b;
+}
+/* line 74, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(3) {
+  width: 462px;
+  left: 154px;
+  top: 4px;
+}
+/* line 83, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(3) .triangle {
+  background-color: #6b276b;
+}
+/* line 74, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(4) {
+  width: 308px;
+  left: 231px;
+  top: 6px;
+}
+/* line 83, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(4) .triangle {
+  background-color: #5a9c49;
+}
+/* line 74, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(5) {
+  width: 154px;
+  left: 308px;
+  top: 8px;
+}
+/* line 83, ../../app/styles/components/_triangles-demo.scss */
+.triangles .group:nth-child(5) .triangle {
+  background-color: #a31c34;
+}
+/* line 96, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(1) {
+  left: 0px;
+}
+/* line 102, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(1) .inner {
+  background-color: #95c34b;
+}
+/* line 96, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(2) {
+  left: 154px;
+}
+/* line 102, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(2) .inner {
+  background-color: #c43e2f;
+}
+/* line 96, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(3) {
+  left: 308px;
+}
+/* line 102, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(3) .inner {
+  background-color: #1aa0cc;
+}
+/* line 96, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(4) {
+  left: 462px;
+}
+/* line 102, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(4) .inner {
+  background-color: #1aa0cc;
+}
+/* line 96, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(5) {
+  left: 616px;
+}
+/* line 102, ../../app/styles/components/_triangles-demo.scss */
+.triangles .triangle:nth-child(5) .inner {
+  background-color: #95c34b;
+}
+
+/* line 5, ../../app/styles/components/_hexa-demo.scss */
+.hexa-logo {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+/* line 13, ../../app/styles/components/_hexa-demo.scss */
+.hexas-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #FFF;
+}
+
+/* line 26, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid {
+  width: 1718px;
+  height: 800px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -859px;
+  margin-top: -400px;
+  z-index: 1;
+}
+/* line 32, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group {
+  position: relative;
+  height: 173.20508px;
+}
+/* line 36, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(even) {
+  background-color: transparent !important;
+  left: 152px;
+  margin-top: -85.60254px;
+}
+/* line 44, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon {
+  overflow: hidden;
+  width: 200px;
+  height: 173.20508px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -86.60254px;
+  margin-left: 0;
+  transform: rotate(60deg) skewX(30deg);
+}
+/* line 53, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon .inner {
+  width: inherit;
+  height: inherit;
+  display: block;
+  content: "";
+  background-color: #1aa0cc;
+  transform: skewX(-30deg) rotate(-60deg);
+}
+/* line 65, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon iframe {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(1) {
+  left: 0px;
+  transition: all 1.26s ease-in;
+  transition-delay: 0.25s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(2) {
+  left: 304px;
+  transition: all 1.32s ease-in;
+  transition-delay: 0.5s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(3) {
+  left: 608px;
+  transition: all 1.38s ease-in;
+  transition-delay: 0.75s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(4) {
+  left: 912px;
+  transition: all 1.44s ease-in;
+  transition-delay: 1s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(5) {
+  left: 1216px;
+  transition: all 1.5s ease-in;
+  transition-delay: 1.25s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(6) {
+  left: 1520px;
+  transition: all 1.56s ease-in;
+  transition-delay: 1.5s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(7) {
+  left: 1824px;
+  transition: all 1.62s ease-in;
+  transition-delay: 1.75s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(8) {
+  left: 2128px;
+  transition: all 1.68s ease-in;
+  transition-delay: 2s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(9) {
+  left: 2432px;
+  transition: all 1.74s ease-in;
+  transition-delay: 2.25s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(10) {
+  left: 2736px;
+  transition: all 1.8s ease-in;
+  transition-delay: 2.5s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(11) {
+  left: 3040px;
+  transition: all 1.86s ease-in;
+  transition-delay: 2.75s;
+}
+/* line 73, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .hexagon:nth-child(12) {
+  left: 3344px;
+  transition: all 1.92s ease-in;
+  transition-delay: 3s;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(2) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(3) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(4) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(5) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(6) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(7) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(8) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(9) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(10) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(11) {
+  margin-top: -85.60254px;
+}
+/* line 82, ../../app/styles/components/_hexa-demo.scss */
+#hexa-grid .grid-group:nth-child(12) {
+  margin-top: -85.60254px;
+}
+
+/* line 90, ../../app/styles/components/_hexa-demo.scss */
+#anim-trigger {
+  display: none;
+  position: absolute;
+  top: 8px;
+  left: 5px;
+}
+
+/* line 97, ../../app/styles/components/_hexa-demo.scss */
+.anim-trigger {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  color: #FFF;
+  background: #1aa0cc;
+  border-radius: 4px;
+}
+/* line 115, ../../app/styles/components/_hexa-demo.scss */
+.anim-trigger:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: #1aa0cc;
+}
+
+/* line 136, ../../app/styles/components/_hexa-demo.scss */
+#anim-trigger:checked + .anim-trigger {
+  color: #1aa0cc;
+}
+/* line 139, ../../app/styles/components/_hexa-demo.scss */
+#anim-trigger:checked + .anim-trigger:after {
+  animation: scaleDisc 1s ease-in;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+}
+
+/* line 148, ../../app/styles/components/_hexa-demo.scss */
+#anim-trigger:checked + .anim-trigger + #hexa-grid .hexagon {
+  transform: rotateY(90deg);
+  opacity: 0;
+}
+
+@keyframes scaleDisc {
+  100% {
+    transform: scale(1000);
+  }
+}
+/* line 2, ../../app/styles/components/_leap-demo.scss */
+.leap-holder {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform: translateZ(1000px) rotateX(75deg);
+}
+/* line 14, ../../app/styles/components/_leap-demo.scss */
+.leap-holder.anim-step0 .leap {
+  transform: translateY(0px);
+}
+/* line 19, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .leap {
+  transition: all 1s ease-in;
+  transform: translateY(-3200px) rotateY(30deg);
+}
+/* line 25, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .lcube,
+.leap-holder .lcube-half {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  border: 2px solid #eee;
+  background-color: rgba(102, 102, 102, 0.2);
+}
+/* line 31, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .lcube:before, .leap-holder .lcube:after,
+.leap-holder .lcube-half:before,
+.leap-holder .lcube-half:after {
+  display: block;
+  content: '';
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  background-color: rgba(102, 102, 102, 0.2);
+  border: 2px solid #eee;
+}
+/* line 42, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .lcube:before,
+.leap-holder .lcube-half:before {
+  transform-origin: left;
+  transform: rotateY(-90deg);
+}
+/* line 48, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .lcube:after,
+.leap-holder .lcube-half:after {
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+/* line 56, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .lcube-half {
+  transform: translateZ(100px) rotate(-90deg) rotateX(180deg);
+}
+/* line 70, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .finger-half,
+.leap-holder .finger {
+  display: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+/* line 76, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .finger-half:after,
+.leap-holder .finger:after {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+/* line 80, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .finger-half:before,
+.leap-holder .finger:before {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+  transform: rotateY(-90deg) translateZ(0px);
+}
+/* line 85, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .finger-half {
+  display: inherit;
+  transform: translateZ(30px) rotate(180deg) rotateX(180deg);
+}
+/* line 89, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .finger-half:after {
+  transform-origin: bottom;
+  transform: rotateX(-90deg);
+}
+/* line 99, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .palm-half,
+.leap-holder .palm {
+  display: none;
+  width: 130px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -65px;
+  margin-top: -25px;
+}
+/* line 105, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .palm-half:after,
+.leap-holder .palm:after {
+  width: 130px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -65px;
+  margin-top: -25px;
+}
+/* line 109, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .palm-half:before,
+.leap-holder .palm:before {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+  transform: rotateY(-90deg) translateZ(40px);
+}
+/* line 114, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .palm-half {
+  display: inherit;
+  transform: translateZ(50px) rotate(180deg) rotateX(180deg);
+}
+/* line 118, ../../app/styles/components/_leap-demo.scss */
+.leap-holder .palm-half:after {
+  transform-origin: bottom;
+  transform: rotateX(-90deg);
+}
+
+/* line 126, ../../app/styles/components/_leap-demo.scss */
+.leap {
+  position: absolute;
+  bottom: -300px;
+  left: 0;
+  width: 100%;
+  min-height: 1px;
+  border: 0;
+}
+/* line 137, ../../app/styles/components/_leap-demo.scss */
+.leap *, .leap *:before, .leap *:after {
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+/* line 145, ../../app/styles/components/_leap-demo.scss */
+.leap .rotatable-lcube {
+  transition: all 2s ease-in;
+}
+/* line 151, ../../app/styles/components/_leap-demo.scss */
+.leap .rotatable-lcube, .leap .rotatable-lcube:before, .leap .rotatable-lcube:after, .leap .rotatable-lcube .lcube-half, .leap .rotatable-lcube .lcube-half:before, .leap .rotatable-lcube .lcube-half:after {
+  background-color: rgba(163, 28, 52, 0.8);
+}
+/* line 156, ../../app/styles/components/_leap-demo.scss */
+.leap .rotatable-holder {
+  border: 0;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -50px;
+  top: 0;
+  margin-top: 0;
+  transition: all 2s ease-in;
+  transform-origin: right;
+  transform: rotateY(0deg);
+}
+/* line 170, ../../app/styles/components/_leap-demo.scss */
+.leap .rotatable-lcube {
+  transform-origin: bottom;
+  transform: rotateX(-45deg);
+}
+/* line 177, ../../app/styles/components/_leap-demo.scss */
+.leap .step1 .rotatable-lcube {
+  transform-origin: bottom;
+  transform: rotateX(-45deg);
+}
+/* line 184, ../../app/styles/components/_leap-demo.scss */
+.leap .step2 {
+  transform-origin: right;
+  transform: rotateY(45deg);
+}
+
+/* line 198, ../../app/styles/components/_leap-demo.scss */
+.spin-x {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+}
+/* line 202, ../../app/styles/components/_leap-demo.scss */
+.spin-x.active {
+  animation: spinlCube .4s 0s linear infinite;
+}
+
+@keyframes animStep1 {
+  0% {
+    transform-origin: bottom right;
+    transform: translateY(-50px) rotateX(0deg);
+  }
+  100% {
+    transform-origin: bottom right;
+    transform: translateY(-50px) rotateX(-45deg);
+  }
+}
+@keyframes animStep2 {
+  0% {
+    transform-origin: right bottom;
+    transform: translateX(-50px) rotateY(0deg);
+  }
+  100% {
+    transform-origin: right bottom;
+    transform: translateX(-50px) rotateY(45deg);
+  }
+}
+@keyframes spinlCube {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* line 37, ../../app/styles/main.scss */
+* {
+  transform-style: preserve-3d;
+}
+
+/* line 42, ../../app/styles/main.scss */
+html,
+body,
+#container {
+  width: 100%;
+  height: 100%;
+}
